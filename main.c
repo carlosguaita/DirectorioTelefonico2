@@ -37,23 +37,7 @@ int main (int argc, char *argv[]) {
             }
             break;
         case 4:
-            char nuevaDireccion[40];
-            int nuevoNumero;
-            printf("Ingrese el nombre del contacto que desa editar: ");
-            fflush(stdin);
-            scanf("%s",&nombreABuscar);
-            int index2 = buscarXNombre(nombresDireccion,6,nombreABuscar);
-            if (index2!=-1){
-                printf("Ingrese la nueva direccion del contacto: ");
-                fflush(stdin);
-                scanf("%s",&nuevaDireccion);
-                printf("Ingrese el nuevo numero del contacto: ");
-                fflush(stdin);
-                scanf("%d",&nuevoNumero);
-                editarContacto(nombresDireccion,numeros,nuevaDireccion,nuevoNumero,index2);
-            }else{
-                printf("El nombre buscado no existe");
-            }
+            editarContacto(nombresDireccion,numeros);
             break;
         default:
             break;
@@ -62,6 +46,6 @@ int main (int argc, char *argv[]) {
     printf("Desea seleccionar otra opcion: 1.Si / 2.No\n>>");
     scanf("%d",&opcion2);
     }while(opcion2==1);
-    
+
     return 0;
 }
