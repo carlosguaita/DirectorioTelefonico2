@@ -15,7 +15,7 @@ int buscarXNombre(char nombres[][2][40], int n, char nombre[]){
 }
 
 void imprimirNumero(char nombres[][2][40], int numeros[], int index){
-    printf("El numero de %s es %d y su direcciones %s",nombres[index][0],
+    printf("El numero de %s es %d y su direcciones %s\n",nombres[index][0],
                                                        numeros[index],
                                                        nombres[index][1]);
 }
@@ -29,10 +29,22 @@ void imprimirContactos(char nombres[][2][40], int numeros[], int n){
 }
 
 void ingresarContacto(char nombres[][2][40], int numeros[], int n){
-    printf("Ingrese el nombre: ");
-    scanf("%s",&nombres[n][0]);
-    printf("Ingrese el numero: ");
-    scanf("%d",&numeros[n]);
-    printf("Ingrese la direccion: ");
-    scanf("%s",&nombres[n][1]);
+    for (int i = 0; i < n; i++)
+    {
+        printf("Ingrese el nombre: ");
+        scanf("%s",&nombres[i][0]);
+        printf("Ingrese el numero: ");
+        scanf("%d",&numeros[i]);
+        printf("Ingrese la direccion: ");
+        scanf("%s",&nombres[i][1]);
+    } 
+}
+
+void editarContacto(char nombres[][2][40], 
+                    int numeros[],
+                    char nuevaDireccion[],
+                    int nuevoNumero,
+                    int index){
+        strcpy(nombres[index][1],nuevaDireccion);
+        numeros[index]=nuevoNumero;
 }
