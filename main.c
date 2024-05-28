@@ -9,13 +9,13 @@ int main (int argc, char *argv[]) {
                                      {"lorena","carcelen"},
                                      {"juan","inca"},
                                      {"maria","recreo"}};
-
+    int edades[6]={20,40,35,30,20,24};
     int numeros[6]={245,345,456,567,678,789};
     char nombreABuscar[40];
     int opcion1, opcion2;
     do{
 
-        printf("Selecciones una opcion:\n1.Ingresar Contactos\n2.MostrarContactos\n3.BuscarContacto\n4.Editar Contacto\n>>");
+        printf("Selecciones una opcion:\n1.Ingresar Contactos\n2.MostrarContactos\n3.Buscar Contacto\n4.Editar Contacto\n>>");
         scanf("%d",&opcion1);
         switch (opcion1)
         {
@@ -23,18 +23,10 @@ int main (int argc, char *argv[]) {
             ingresarContacto(nombresDireccion,numeros,6);
             break;
         case 2:
-            imprimirContactos(nombresDireccion,numeros,6);
+            imprimirContactos(nombresDireccion,numeros,edades,6);
             break;
         case 3:
-            printf("Ingrese el nombre a buscar: ");
-            fflush(stdin);
-            scanf("%s",&nombreABuscar);
-            int index = buscarXNombre(nombresDireccion,6,nombreABuscar);
-            if (index!=-1){
-                imprimirNumero(nombresDireccion,numeros,index);
-            }else{
-                printf("El nombre buscado no existe\n");
-            }
+            buscarContacto(nombresDireccion,numeros,edades,6);
             break;
         case 4:
             editarContacto(nombresDireccion,numeros);
