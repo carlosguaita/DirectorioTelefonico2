@@ -21,6 +21,26 @@ void buscarContacto(char nombres[][2][40], int numeros[], int edad[], int n){
     }
 }
 
+void buscarContactoXEdad(char nombres[][2][40], int numeros[], int edad[], int n){
+    int edadABuscar;
+    int indices[6]={-1,-1,-1,-1,-1,-1};
+    int noexiste=0;
+    printf("Ingrese la edad de los contactos a buscar: ");
+    fflush(stdin);
+    scanf("%d",&edadABuscar);
+    buscarEdades(edad,6,edadABuscar,indices);
+    for (int i = 0; i < n; i++){
+        if(indices[i]!=-1){
+          imprimirNumero(nombres,numeros,edad,indices[i]);
+          noexiste=1;
+        }        
+    }
+    if(noexiste==0){
+       printf("El nombre buscado no existe\n");
+    }
+}
+
+
 int buscarXNombre(char nombres[][2][40], int n, char nombre[]){
     int index=-1;
     for (int i = 0; i < n; i++)
@@ -38,6 +58,17 @@ void buscarNombres(char nombres[][2][40], int n, char nombre[], int indices[]){
     for (int i = 0; i < n; i++)
     {
         if(strcmp(nombres[i][0],nombre)==0){
+            indices[j]=i;
+            j++;
+        }
+    }
+}
+
+void buscarEdades(int edades[], int n, int edad, int indices[]){
+    int j=0;
+    for (int i = 0; i < n; i++)
+    {
+        if(edades[i]==edad){
             indices[j]=i;
             j++;
         }

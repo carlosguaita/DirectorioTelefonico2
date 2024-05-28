@@ -7,12 +7,11 @@ int main (int argc, char *argv[]) {
                                      {"ana","marin"},
                                      {"jose","tejar"},
                                      {"lorena","carcelen"},
-                                     {"juan","inca"},
+                                     {"ana","inca"},
                                      {"maria","recreo"}};
-    int edades[6]={20,40,35,30,20,24};
+    int edades[6]={20,40,35,30,20,35};
     int numeros[6]={245,345,456,567,678,789};
-    char nombreABuscar[40];
-    int opcion1, opcion2;
+    int opcion1, opcion2, opcion3;
     do{
 
         printf("Selecciones una opcion:\n1.Ingresar Contactos\n2.MostrarContactos\n3.Buscar Contacto\n4.Editar Contacto\n>>");
@@ -26,7 +25,18 @@ int main (int argc, char *argv[]) {
             imprimirContactos(nombresDireccion,numeros,edades,6);
             break;
         case 3:
-            buscarContacto(nombresDireccion,numeros,edades,6);
+            printf("1.Buscar por nombre\n2.Buscar por edad\n>>");
+            scanf("%d",&opcion3);
+            switch (opcion3)
+            {
+            case 1:
+                buscarContacto(nombresDireccion,numeros,edades,6);
+                break;
+            case 2:
+                buscarContactoXEdad(nombresDireccion,numeros,edades,6);
+            default:
+                break;
+            }
             break;
         case 4:
             editarContacto(nombresDireccion,numeros);
